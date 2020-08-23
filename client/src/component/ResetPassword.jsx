@@ -3,7 +3,7 @@ import axios from "axios";
 import Header from "./header";
 
 function ResetPassword() {
-  //const [Reset, setReset] = useState(false);
+  const [Reset, setReset] = useState(false);
 
   //CHECK LOGIN
   // useEffect(() => {
@@ -41,11 +41,15 @@ function ResetPassword() {
       const res = await axios.post("/users/resetpassword", {
         email: user.email,
       });
+      // if (!history.location.pathname.startsWith("/login.resetpassword"))
+      //   history.push("/login");
+
       console.log(res);
       setUser({ email: "" });
     } catch (err) {
       err.response.data.msg && setErr(err.response.data.msg);
     }
+    console.log(err);
   };
 
   return (
@@ -67,7 +71,7 @@ function ResetPassword() {
                   <label>Email</label>
                   <input
                     type="email"
-                    id="login-email"
+                    id="reset-email"
                     name="email"
                     className="form-control"
                     placeholder="Enter Email"

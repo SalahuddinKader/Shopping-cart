@@ -2,6 +2,18 @@ const Users = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
+const crypto = require("crypto");
+//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;
+//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;
+// const sendgridTransport = require("nodemailer-sendgrid-transport");
+
+// let transporter = nodemailer.createTransport(
+//   sendgridTransport({
+//     auth: {
+//       api_key: "vU6cVdOxRtyKHBxoXVQEAQ",
+//     },
+//   })
+// );
 
 const userCtrl = {
   registerUser: async (req, res) => {
@@ -64,7 +76,7 @@ const userCtrl = {
 
   //Reset Password
   resetPassword: async (req, res) => {
-    Users.findOne({ email: req.body.email }, function (error, userData) {
+    Users.findOne({ email: req.body.email }).then((user) => {
       let transporter = nodemailer.createTransport({
         service: "Gmail",
         port: 465,
@@ -80,44 +92,68 @@ const userCtrl = {
         to: "req.body.email",
         subject: `Reset Password`,
         html: `<h2>Welcome</h2>
-      <h3> Hello ${userData.name}</h3>
+      <h3> Hello ${user.name}</h3>
       Click on below
-      <a href = "http:localhost:3000/change-password" ${currentDateTime} ${userData.email}> Click on this link</a>
+      <a href = "http:localhost:5000/change-password" ${currentDateTime} ${user.email}> Click on this link</a>
       `,
       };
-      // transporter.sendMail(mailOptions, function (error, info) {
-      //   if (error) {
-      //     console.log(error);
-      //   } else {
-      //     console.log(`Email Sent ${info.response}`);
-      //     Users.updateOne(
-      //       { email: userData.email },
-      //       {
-      //         token: currentDateTime,
-      //       },
-      //       { multi: true },
-      //       function (err, affected, resp) {
-      //         return res.status(200).json({
-      //           success: false,
-      //           msg: info.response,
-      //           userlist: resp,
-      //         });
-      //       }
-      //     );
-      //   }
-      // });
 
       transporter.sendMail(mailOptions, (err, response) => {
         if (err) {
+          console.log(err);
           res.send(err);
         } else {
-          return res.status(200).json({ msg: " Message has been sent" });
+          Users.updateOne(
+            { email: user.email },
+            {
+              token: currentDateTime,
+            },
+            function (err, res) {
+              return res.status(200).json({ msg: " Email has been sent" });
+            }
+          );
         }
 
         transporter.close();
       });
     });
   },
+
+  // resetPassword: async (req, res) => {
+  //   crypto.randomBytes(32, (err, buffer) => {
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     const token = buffer.toString("hex");
+  //     Users.findOne({ email: req.body.email }).then((user) => {
+  //       let transporter = nodemailer.createTransport({
+  //         port: 465,
+  //         auth: {
+  //           user: "testweb632@gmail.com",
+  //           pass: "lipy145611@",
+  //         },
+  //       });
+  //       if (!user) {
+  //         return res.status(422).json({ err: "User does not exists" });
+  //       }
+  //       user.resetToken = token;
+  //       user.expireToken = Date.now() + 3600000;
+  //       user.save().then((result) => {
+  //         transporter.sendMail({
+  //           to: user.email,
+  //           from: "no-replay@insta.com",
+  //           subject: `Reset Password`,
+  //           html: `<h2>You requested for reset password reset</h2>
+  //     <h3> Hello ${user.name}</h3>
+  //     <h5> Click in this <a href = "http:localhost:3000/reset/${token}">link</a> to reset password</h5>
+
+  //     `,
+  //         });
+  //         return res.json({ message: "check your email" });
+  //       });
+  //     });
+  //   });
+  // },
 
   verifiedToken: (req, res) => {
     try {

@@ -10,8 +10,6 @@ const Contact = () => {
     email: "",
     message: "",
     mobile: "",
-    sent: false,
-    buttonText: "Send Message",
   });
   const [err, setErr] = useState(" ");
 
@@ -32,9 +30,9 @@ const Contact = () => {
         message: user.message,
       });
       setUser({ sent: true });
-
+      console.log(user.name);
       setUser({ name: "", email: "", lastname: "", mobile: "", message: "" });
-
+      console.log(user.name);
       setErr(res.data.msg);
     } catch (err) {
       err.response.data.msg && setErr(err.response.data.msg);

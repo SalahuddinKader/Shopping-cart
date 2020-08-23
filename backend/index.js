@@ -19,13 +19,6 @@ app.use(cors());
 
 //Routes
 app.use("/users", userRouter);
-app.use((req, res, next) => {
-  res.status(404).json({
-    success: false,
-    message: "Page Not Founded",
-  });
-});
-
 //STRIPE PAYMENT
 app.post("/payment", (req, res) => {
   const { products, token, total } = req.body;
@@ -98,9 +91,9 @@ app.post("/api/forma", (req, res) => {
     `,
   };
 
-  smtpTransport.sendMail(mailOptions, (err, response) => {
-    if (err) {
-      res.send(err);
+  smtpTransport.sendMail(mailOptions, (error, response) => {
+    if (error) {
+      res.send(error);
     } else {
       return res.status(200).json({ msg: " Message has been sent" });
     }
