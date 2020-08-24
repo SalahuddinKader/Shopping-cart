@@ -9,7 +9,7 @@ const cors = require("cors");
 const express = require("express");
 const userRouter = require("./router/userRouter");
 const nodemailer = require("nodemailer");
-
+const path = require("path");
 const stripe = require("stripe")(stripeSecretKey);
 
 const app = express();
@@ -102,12 +102,6 @@ app.post("/api/forma", (req, res) => {
   });
 });
 
-//listen
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
 //Connect to MongoDB
 const URI = process.env.MONGO_URL;
 mongoose.connect(
@@ -123,3 +117,15 @@ mongoose.connect(
     console.log("Connected to MongoDB ....");
   }
 );
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
+//listen
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
