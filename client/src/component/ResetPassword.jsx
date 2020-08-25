@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Header from "./header";
+import { Link } from "react-router-dom";
 
 function ResetPassword() {
-  const [Reset, setReset] = useState(false);
-
-  //CHECK LOGIN
-  // useEffect(() => {
-  //   const checkLogin = async () => {
-  //     const token = localStorage.getItem("tokenStore");
-  //     if (token) {
-  //       const verified = await axios.get("/users/verify", {
-  //         headers: { Authorization: token },
-  //       });
-
-  //       setReset(verified.data);
-  //       if (verified.data === false) return localStorage.clear();
-  //     } else {
-  //       setReset(false);
-  //     }
-  //   };
-  //   checkLogin();
-  // }, []);
+  //Check Login
   const [user, setUser] = useState({
     email: "",
   });
@@ -86,7 +69,7 @@ function ResetPassword() {
                   className="btn btn-primary btn-block bg-primary"
                 >
                   Reset Password
-                  <a href="/login"></a>
+                  <Link to="/login"></Link>
                 </button>
               </form>
             </div>

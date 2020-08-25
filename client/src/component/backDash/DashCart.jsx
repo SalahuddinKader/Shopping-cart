@@ -48,12 +48,10 @@ const DashCart = () => {
       });
   };
 
-  //Pay With Card HandleToken
-
   //Added to Total in the cart
   useEffect(() => {
     handleTotal();
-  }, []);
+  });
 
   //Without product showing empty cart
   if (cart.length === 0) {

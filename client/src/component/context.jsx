@@ -143,6 +143,7 @@ export const DataProvider = (props) => {
 
   //Add total in the cart
   const [total, setTotal] = useState(0);
+
   const handleTotal = () => {
     const total = cart.reduce((prev, item) => {
       return prev + item.price * item.count;

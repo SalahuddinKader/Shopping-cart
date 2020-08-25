@@ -14,7 +14,7 @@ const Details = (props) => {
       (item) => item._id === props.match.params.id
     );
     setProduct(product);
-  }, []);
+  }, [products, props.match.params.id]);
 
   return (
     <div>
