@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./backDash/Nav";
 import DashProducts from "./backDash/DashProducts";
 import DashProductDetails from "./backDash/DashProductDetails";
-import Home from "./backDash/Home";
+// import Home from "./backDash/Home";
 import DashContact from "./backDash/DashContact";
 import DashCart from "./backDash/DashCart";
 import MyAccount from "./backDash/MyAccount";
@@ -14,8 +14,8 @@ function Main({ setIsLogin }) {
       <div>
         <Header setIsLogin={setIsLogin} />
         <section>
-          <Route path="/login" component={Home} exact />
-          <Route path="/login/products" component={DashProducts} exact />
+          {/* <Route path="/login" component={Home} exact /> */}
+          <Route path="/login" component={DashProducts} exact />
           <Route path="/login/products/:id" component={DashProductDetails} />
           <Route path="/login/contact" component={DashContact} exact />
           <Route path="/login/dashCart" component={DashCart} exact />

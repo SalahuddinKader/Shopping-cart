@@ -34,7 +34,7 @@ const DashProductDetails = (props) => {
             <p>{item.description}</p>
             <p>{item.content}</p>
             <Link
-              to="/login/products"
+              to="/login"
               className="cart"
               style={{ background: "crimson" }}
             >

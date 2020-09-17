@@ -5,13 +5,15 @@ import Colors from "../section/colors";
 import "../css/Details.css";
 import "../css/Cart.css";
 import { toast } from "react-toastify";
+import Header from "../header";
+import Header2nd from "../header2nd";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import StripeCheckout from "react-stripe-checkout";
 toast.configure();
 
-const DashCart = () => {
+const Cart = () => {
   const {
-    products,
     cart,
     handleIncrement,
     handleDecrement,
@@ -20,22 +22,12 @@ const DashCart = () => {
     handleTotal,
     removeAll,
   } = useContext(DataContext);
-
-  const handleToken = (token) => {
-    const body = {
-      token,
-      products,
-      total,
-    };
-
-    const headers = {
-      "Content-Type": "application/json",
-    };
-    return fetch(`http://localhost:5000/payment`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    })
+  const handleToken = async (token) => {
+    return await axios
+      .post("/api/payment", {
+        token,
+        total,
+      })
       .then((response) => {
         toast(" Success! Check email for details", { type: "success" });
 
@@ -48,6 +40,23 @@ const DashCart = () => {
       });
   };
 
+  // const handleToken = async (token) => {
+  //   const res = await axios.post("/api/payment", {
+  //     token,
+  //     total,
+  //   });
+  //   try {
+  //     toast(" Success! Check email for details", { type: "success" });
+  //     console.log(res);
+  //     removeAll();
+  //   } catch (err) {
+  //     toast("Something went wrong", { type: "error" });
+  //     console.log(err);
+  //   }
+  // };
+
+  //Pay With Card HandleToken
+
   //Added to Total in the cart
   useEffect(() => {
     handleTotal();
@@ -57,7 +66,9 @@ const DashCart = () => {
   if (cart.length === 0) {
     return (
       <div>
-        <h2 style={{ textAlign: "center" }}>Your Cart is Currently Empty</h2>{" "}
+        <h4 className="no-items" style={{ textAlign: "center" }}>
+          There are no items in the bag.
+        </h4>
       </div>
     );
   } else {
@@ -90,11 +101,14 @@ const DashCart = () => {
                 >
                   +
                 </button>
+                {/* <div className="delete" onClick={() => handleRemove(item._id)}>
+                  X
+                </div> */}
               </div>
             </div>
 
             <div className="delete" onClick={() => handleRemove(item._id)}>
-              Remove
+              X
             </div>
           </div>
         ))}
@@ -104,13 +118,15 @@ const DashCart = () => {
 
         <div className="total">
           <div className="total">
-            <Link to="/products" style={{ background: "crimson" }}>
+            <Link to="/login" style={{ background: "crimson" }}>
               Continue Shopping
             </Link>
           </div>
           <StripeCheckout
             stripeKey="pk_test_51HAlmnIfOyLdLwzAz2piAWlcCJcAPATSEkCyxcUG7m1F80xXqr4wd8FoFWqYEfXUUEEgDGBx5G9aXG4IenAw46fh00x1Qgnr7v"
             token={handleToken}
+            amount={total * 100}
+            currency="GBP"
             name="NIKE"
             billingAddress
             shippingAddress
@@ -123,4 +139,4 @@ const DashCart = () => {
   }
 };
 
-export default DashCart;
+export default Cart;

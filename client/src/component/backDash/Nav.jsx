@@ -3,7 +3,7 @@ import Menu from "../svg/bars-solid.svg";
 import Close from "../svg/times-solid.svg";
 import CartIcon from "../svg/shopping-cart-solid.svg";
 import { Link } from "react-router-dom";
-import "../css/Header.css";
+import "../css/nav.css";
 import { DataContext } from "../context";
 
 function Nav({ setIsLogin }) {
@@ -22,7 +22,7 @@ function Nav({ setIsLogin }) {
   };
   return (
     <div>
-      <header>
+      <heeader>
         <div className="menu" onClick={menuToggle}>
           <img src={Menu} alt=" Menu" width="20" />
         </div>
@@ -35,10 +35,7 @@ function Nav({ setIsLogin }) {
         <nav className="nav">
           <ul className={toggle ? "toggle" : ""}>
             <li onClick={menuToggle}>
-              <Link to="/login">Home</Link>
-            </li>
-            <li onClick={menuToggle}>
-              <Link to="/login/products">Product</Link>
+              <Link to="/login">Product</Link>
             </li>
             <li onClick={menuToggle}>
               <Link to="/login/contact">Contact</Link>
@@ -56,18 +53,15 @@ function Nav({ setIsLogin }) {
               <img src={Close} alt="" width="15" />
             </li>
           </ul>
-          <div className="nav-cart">
+          <div className="nav-carts">
             <span>{cart.length}</span>
 
             <Link to="/login/dashCart">
               <img src={CartIcon} alt=" CartIcon" width="20" />
             </Link>
           </div>
-          <div>
-            <span> {}</span>
-          </div>
         </nav>
-      </header>
+      </heeader>
     </div>
   );
 }
