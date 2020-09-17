@@ -122,7 +122,7 @@ const Cart = () => {
 
         <div className="total">
           <div className="total">
-            <Link to="/products" style={{ background: "crimson" }}>
+            <Link to="/" style={{ background: "crimson" }}>
               Continue Shopping
             </Link>
           </div>
