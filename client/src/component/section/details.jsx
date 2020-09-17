@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Colors from "./colors";
 import "../css/Details.css";
 import Header from "../header";
+import Header2nd from "../header2nd";
 
 const Details = (props) => {
   const { products, addCart } = useContext(DataContext);
@@ -19,6 +20,7 @@ const Details = (props) => {
   return (
     <div>
       <Header />
+      <Header2nd />
       {product.map((item) => (
         <div className="details" key={item._id}>
           <img src={item.src} alt="" />
@@ -32,11 +34,7 @@ const Details = (props) => {
 
             <p>{item.description}</p>
             <p>{item.content}</p>
-            <Link
-              to="/product"
-              className="cart"
-              style={{ background: "crimson" }}
-            >
+            <Link to="/" className="cart" style={{ background: "crimson" }}>
               Back To Product
             </Link>
             <Link to="/cart" className="cart" onClick={() => addCart(item._id)}>

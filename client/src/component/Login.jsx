@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./header";
+import Header2nd from "./header2nd";
+
 import { Link } from "react-router-dom";
 import Main from "./Main";
 
@@ -65,6 +67,7 @@ function Login() {
       ) : (
         <div>
           <Header />
+          <Header2nd />
           <div className="login">
             <div className="row mt-5">
               <div className="col-md-6 m-auto">

@@ -1,0 +1,192 @@
+headers {
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-right: 18px;
+  padding-left: 65px;
+}
+
+headers .logo {
+  margin-top: -15px;
+}
+headers nav {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+nav ul li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: black;
+  padding: 0 15px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: width 5s;
+}
+headers nav ul li a:hover {
+  color: rgb(155, 153, 153);
+  text-decoration: none;
+  /* border-bottom: 2px solid black; */
+}
+
+nav .nav-cart {
+  cursor: pointer;
+  position: relative;
+  margin-right: 20px;
+}
+nav .nav-cart span {
+  position: absolute;
+  top: 5px;
+  right: -16px;
+  background: crimson;
+  font-size: 10px;
+  color: white;
+  padding: 0px 6px 0px 6px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  z-index: -1;
+}
+headers .menu,
+headers .close {
+  cursor: pointer;
+  display: none;
+}
+
+headers nav .login,
+headers nav .join-us,
+headers nav .member {
+  visibility: hidden;
+}
+.sub-menu {
+  display: none;
+}
+
+headers nav ul li:hover .sub-menu {
+  width: 100%;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: -1px;
+  right: -1px;
+}
+headers nav ul li:hover .sub-menu ul li {
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  padding-bottom: 70px;
+  padding-right: 60px;
+  text-align: justify;
+}
+headers nav ul li:hover .sub-menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 60px;
+}
+headers nav ul li:hover .sub-menu ul li h4 {
+  padding-left: 12px;
+}
+.fa-angle-right {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  headers ul {
+    position: fixed;
+    left: -115%;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 15px;
+    flex-direction: column;
+    background: white;
+    z-index: 99;
+    opacity: 0.97;
+    transition: 0.5s linear;
+  }
+  headers .menu,
+  headers .close {
+    display: block;
+    margin-top: 0px;
+  }
+  headers .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  headers ul.toggle {
+    left: 0;
+  }
+
+  headers ul li {
+    margin-top: 15px;
+  }
+  headers ul li a {
+    font-size: 25px;
+  }
+
+  headers nav .login,
+  headers nav .join-us {
+    visibility: visible;
+    border-radius: 20px;
+  }
+  headers nav .member {
+    visibility: visible;
+    display: inline-block;
+    width: 280px;
+    margin-top: 5px;
+    text-align: left;
+    color: rgb(158, 154, 154);
+  }
+  headers nav .login {
+    position: relative;
+    left: 150px;
+    bottom: 20px;
+  }
+  headers nav .join-us {
+    position: relative;
+    top: 20px;
+    left: 25px;
+  }
+  headers nav .login {
+    position: relative;
+    top: -35px !important;
+  }
+  headers nav .login a {
+    font-size: 15px !important;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 25px 8px 25px;
+  }
+  headers nav .join-us a {
+    font-size: 15px !important;
+    color: white;
+    background: black;
+    border: 1px solid dark;
+    border-radius: 20px;
+    padding: 8px 25px 8px 25px;
+  }
+
+  .fa-angle-right {
+    display: inline-block;
+    font-size: 20px;
+    position: absolute;
+    left: 250px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  headers nav ul li:hover .sub-menu ul li a {
+    display: none;
+  }
+}

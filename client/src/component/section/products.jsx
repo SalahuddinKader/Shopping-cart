@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../context";
 import Header from "../header";
+import Header2nd from "../header2nd";
+import Search from "./Search";
 import "../css/Products.css";
 const Products = () => {
   const { products } = useContext(DataContext);
@@ -9,6 +11,8 @@ const Products = () => {
   return (
     <div>
       <Header />
+      <Header2nd />
+      <Search />
       <div id="product">
         {products.map((product, i) => (
           <div className="card" key={i}>

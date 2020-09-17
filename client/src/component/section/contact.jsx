@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Header from "../header";
+import Header2nd from "../header2nd";
 import "../css/Contact.css";
 
 const Contact = () => {
@@ -42,7 +43,7 @@ const Contact = () => {
   return (
     <div>
       <Header />
-
+      <Header2nd />
       <div className="row mt-5">
         <div className="col-md-6 m-auto">
           <div className="card card-body">
@@ -115,7 +116,7 @@ const Contact = () => {
                   id=""
                   cols="95"
                   rows="5"
-                  placeholder="Message..."
+                  placeholder="  Message..."
                   onChange={onChangeInput}
                   required
                 ></textarea>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Header from "./header";
+import Header2nd from "./header2nd";
+
 import "./css/register.css";
 function Register() {
   const [user, setUser] = useState({
@@ -37,6 +39,7 @@ function Register() {
   return (
     <div>
       <Header />
+      <Header2nd />
       <div className="row mt-5">
         <div className="col-md-6 m-auto">
           <div className="card card-body">

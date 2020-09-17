@@ -21,12 +21,11 @@ section .cart {
 }
 .delete {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 5px;
   color: crimson;
   cursor: pointer;
-  font-weight: 600;
-  bottom: 10px;
+  font-weight: 700;
 }
 
 .total {
@@ -45,6 +44,7 @@ section .cart {
   letter-spacing: 2px;
   padding: 10px 10px;
   margin-right: 10px;
+  border-radius: 5px;
 }
 
 .total-checkout {
@@ -57,16 +57,16 @@ section .cart {
 .btn {
   margin-right: 20px;
 }
-
-/* @media (max-width: 960px) {
-  .total {
-    position: relative;
-    left: 200px;
+.no-items {
+  margin-top: 100px;
+}
+@media (max-width: 868px) {
+  .no-items {
+    margin-top: 100px;
   }
 }
 @media (max-width: 650px) {
-  .total {
-    position: relative;
-    left: -20px;
+  .total a {
+    padding: 9px 9px;
   }
-} */
+}
