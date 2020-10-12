@@ -135,7 +135,7 @@ const Cart = () => {
             billingAddress
             shippingAddress
           >
-            <button className="btn btn-primary btn-lg">Checkout</button>
+            <button className="btn-check">Checkout</button>
           </StripeCheckout>
         </div>
       </div>

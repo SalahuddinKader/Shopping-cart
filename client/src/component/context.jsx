@@ -10,9 +10,8 @@ export const DataProvider = (props) => {
       _id: "1",
       title: "Nike Shoes 01",
       src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-      description:
-        "Best shoes in the world, if you are not agree up to you !!! ",
-      content: "Best shoes in the world, if you are not agree up to you !!! ",
+      description: "Hoops in the park, Sunday BBQs and sunshine. ",
+      content: "Colour Shown: White/White",
       price: 23,
       colors: ["red", "black", "crimson", "teal"],
       count: 1,
@@ -22,10 +21,9 @@ export const DataProvider = (props) => {
       _id: "2",
       title: "Nike Shoes 02",
       src: "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",
-      description:
-        "Best shoes in the world, if you are not agree up to you !!! ",
+      description: "Hoops in the park, Sunday BBQs and sunshine. ",
       content:
-        "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+        "Welcome to fully Ecommerce web, Created by React, Node, Express, MongoDB",
       price: 19,
       colors: ["red", "crimson", "teal"],
       count: 1,
@@ -38,7 +36,7 @@ export const DataProvider = (props) => {
       description:
         "Best shoes in the world, if you are not agree up to you !!! ",
       content:
-        "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+        "Welcome to fully Ecommerce web, Created by React, Node, Express, MongoDB",
       price: 50,
       colors: ["lightblue", "white", "crimson", "teal"],
       count: 1,
@@ -51,7 +49,7 @@ export const DataProvider = (props) => {
       description:
         "Best shoes in the world, if you are not agree up to you !!! ",
       content:
-        "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+        "Welcome to fully Ecommerce web, Created by React, Node, Express, MongoDB",
       price: 15,
       colors: ["orange", "black", "crimson", "teal"],
       count: 1,
@@ -64,7 +62,7 @@ export const DataProvider = (props) => {
       description:
         "Best shoes in the world, if you are not agree up to you !!! ",
       content:
-        "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+        "Welcome to fully Ecommerce web, Created by React, Node, Express, MongoDB",
       price: 10,
       colors: ["orange", "black", "crimson", "teal"],
       count: 1,
@@ -77,7 +75,7 @@ export const DataProvider = (props) => {
       description:
         "Best shoes in the world, if you are not agree up to you !!! ",
       content:
-        "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+        "Welcome to fully Ecommerce web, Created by React, Node, Express, MongoDB",
       price: 17,
       colors: ["orange", "black", "crimson", "teal"],
       count: 1,

@@ -54,7 +54,13 @@ section .cart {
   display: flex;
   justify-content: flex-end;
 }
-.btn {
+
+.btn-check {
+  background: #333;
+  color: white;
+  text-decoration: none;
+  padding: 7px 25px;
+  display: inline-block;
   margin-right: 20px;
 }
 .no-items {
