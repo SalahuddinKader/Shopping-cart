@@ -30,7 +30,6 @@ const Header2nd = () => {
           <ul className={toggle ? "toggle" : ""}>
             <li onClick={menuToggle}>
               <Link to="/">New Releases</Link>
-              <i className="fa fa-angle-right"></i>
               <div className="sub-menu">
                 <ul>
                   <li>
@@ -59,7 +58,6 @@ const Header2nd = () => {
             </li>
             <li onClick={menuToggle}>
               <Link to="/">Men</Link>
-              <i className="fa fa-angle-right"></i>
 
               <div className="sub-menu">
                 <ul>
@@ -138,7 +136,6 @@ const Header2nd = () => {
             </li>
             <li onClick={menuToggle}>
               <Link to="/">Women</Link>
-              <i className="fa fa-angle-right"></i>
 
               <div className="sub-menu">
                 <ul>
@@ -178,7 +175,6 @@ const Header2nd = () => {
             </li>
             <li onClick={menuToggle}>
               <Link to="/">Kids</Link>
-              <i className="fa fa-angle-right"></i>
 
               <div className="sub-menu">
                 <ul>
@@ -219,7 +215,6 @@ const Header2nd = () => {
             </li>
             <li onClick={menuToggle}>
               <Link to="/">Sale</Link>
-              <i className="fa fa-angle-right"></i>
 
               <div className="sub-menu">
                 <ul>
@@ -249,7 +244,6 @@ const Header2nd = () => {
             </li>
             <li onClick={menuToggle}>
               <Link to="/">Back To School</Link>
-              <i className="fa fa-angle-right"></i>
 
               <div className="sub-menu">
                 <ul>
@@ -286,7 +280,6 @@ const Header2nd = () => {
             </li>
             <li onClick={menuToggle}>
               <Link to="/">Collection</Link>
-              <i className="fa fa-angle-right"></i>
 
               <div className="sub-menu">
                 <ul>
