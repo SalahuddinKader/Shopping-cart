@@ -29,7 +29,9 @@ const Header2nd = () => {
         <nav className="nav">
           <ul className={toggle ? "toggle" : ""}>
             <li onClick={menuToggle}>
-              <Link to="/">New Releases</Link>
+              <Link exact to="/">
+                New Releases
+              </Link>
               <div className="sub-menu">
                 <ul>
                   <li>

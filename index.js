@@ -60,7 +60,7 @@ app.post("/api/forma", (req, res) => {
     port: 465,
     auth: {
       user: "testweb632@gmail.com",
-      pass: "lipy145611@",
+      pass: "Lipy145611@",
     },
     tls: {
       rejectUnauthorized: false,
